@@ -65,7 +65,7 @@ export const CharacterLimit = () => {
 
                 setCharacterLimit(value === "" ? null : Number(value));
               }}
-              className="w-20 rounded-lg border bg-gray-100 p-2 focus:border-purple-500"
+              className="w-20 rounded-lg border bg-gray-100 p-2 text-black focus:border-purple-500 dark:border-[#42414B] dark:bg-[#292832] dark:text-white"
             />
           )}
         </div>

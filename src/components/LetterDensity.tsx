@@ -16,11 +16,8 @@ export const LetterDensity = () => {
             <div key={item.letter} className="flex flex-row gap-2 items-center">
               <span className="font-semibold">{item.letter.toUpperCase()}</span>
 
-              <div className="h-3 w-full overflow-hidden rounded-full bg-gray-200">
-                <div
-                  className="h-full rounded-full bg-purple-500"
-                  style={{ width: `${item.percentage}%` }}
-                />
+              <div className="h-3 w-full overflow-hidden rounded-full bg-purple-500">
+                <div bg-purple-500 style={{ width: `${item.percentage}%` }} />
               </div>
               <div className="flex items-center gap-1 whitespace-nowrap">
                 <span>{item.count}</span>

@@ -1,4 +1,9 @@
+import { useCounterStore } from "../store/counterStore";
+
 export const Header = () => {
+  const theme = useCounterStore((state) => state.theme);
+  const toggleTheme = useCounterStore((state) => state.toggleTheme);
+
   return (
     <header className="flex flex-row items-center justify-between gap-4  py-8">
       <img
@@ -8,12 +13,19 @@ export const Header = () => {
       />
       <button
         type="button"
-        aria-label="Switch to light theme"
-        className="rounded-lg p-3 transition-colors hover:bg-[#1A1A1D]"
+        onClick={toggleTheme}
+        aria-label={
+          theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+        }
+        className="rounded-lg p-3 transition-colors hover:bg-gray-100 dark:hover:bg-[#292832]"
       >
         <img
-          src="/assets/images/icon-moon.svg"
-          alt="Moon Icon"
+          src={
+            theme === "dark"
+              ? "/assets/images/icon-sun.svg"
+              : "/assets/images/icon-moon.svg"
+          }
+          alt=""
           className="h-6 w-6"
         />
       </button>
