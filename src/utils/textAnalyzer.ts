@@ -29,3 +29,29 @@ export const countCharacters = (
 
   return textToCount.length;
 };
+
+export interface LetterDensityItem {
+  letter: string;
+  count: number;
+  percentage: number;
+}
+
+export const getLetterDensity = (text: string): LetterDensityItem[] => {
+  const letterCounts: Record<string, number> = {};
+
+  const letters = text.toLowerCase().match(/[a-z]/g) ?? [];
+
+  const totalLetters = letters.length;
+
+  for (const letter of letters) {
+    letterCounts[letter] = (letterCounts[letter] || 0) + 1;
+  }
+
+  const results = Object.entries(letterCounts).map(([letter, count]) => ({
+    letter,
+    count,
+    percentage: (count / totalLetters) * 100,
+  }));
+
+  return results.sort((a, b) => b.count - a.count);
+};
