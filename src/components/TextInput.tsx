@@ -3,7 +3,6 @@ import { useCounterStore } from "../store/counterStore";
 export const TextInput = () => {
   const text = useCounterStore((state) => state.text);
   const setText = useCounterStore((state) => state.setText);
-  const theme = useCounterStore((state) => state.theme);
   return (
     <div className="flex flex-col gap-4">
       <textarea
