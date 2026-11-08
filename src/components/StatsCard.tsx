@@ -1,11 +1,14 @@
 import { useCounterStore } from "../store/counterStore";
-import { countWords, countSentences } from "../utils/textAnalyzer";
+import {
+  countCharacters,
+  countWords,
+  countSentences,
+} from "../utils/textAnalyzer";
 
 export const StatsCard = () => {
   const text = useCounterStore((state) => state.text);
   const excludeSpaces = useCounterStore((state) => state.excludeSpaces);
-  const spaceExcluded = text.replace(/\s/g, "");
-  const totalCharacter = excludeSpaces ? spaceExcluded.length : text.length;
+  const totalCharacter = countCharacters(text, excludeSpaces);
   const totalWords = countWords(text);
   const totalSentences = countSentences(text);
 

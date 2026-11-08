@@ -20,3 +20,12 @@ export const calculateReadingTime = (text: string): number => {
 
   return wordsCount / wordsPerMinute;
 };
+
+export const countCharacters = (
+  text: string,
+  excludeSpaces: boolean,
+): number => {
+  const textToCount = excludeSpaces ? text.replace(/\s/g, "") : text;
+
+  return textToCount.length;
+};
