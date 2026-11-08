@@ -7,9 +7,13 @@ export const Header = () => {
   return (
     <header className="flex flex-row items-center justify-between gap-4  py-8">
       <img
-        src="/assets/images/logo-light-theme.svg"
-        alt="Logo"
-        className="h-8 w-auto"
+        src={
+          theme === "dark"
+            ? "/assets/images/logo-dark-theme.svg"
+            : "/assets/images/logo-light-theme.svg"
+        }
+        alt="Character Counter Logo"
+        className="h-10 w-auto"
       />
       <button
         type="button"
