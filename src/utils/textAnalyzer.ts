@@ -8,6 +8,15 @@ export const countSentences = (text: string): number => {
   const sentences = text
     .trim()
     .split(/[.!?]+/)
+    .map((sentence) => sentence.trim())
     .filter(Boolean);
+
   return sentences.length;
+};
+
+export const calculateReadingTime = (text: string): number => {
+  const wordsCount = countWords(text);
+  const wordsPerMinute = 200;
+
+  return wordsCount / wordsPerMinute;
 };
